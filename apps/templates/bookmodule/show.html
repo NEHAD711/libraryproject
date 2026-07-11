@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<body>
+    {% if book %}
+        <h1>Book Details</h1>
+        <p>ID: {{ book.id }}</p>
+        <p>Title: {{ book.title }}</p>
+        <p>Author: {{ book.author }}</p>
+    {% else %}
+        <h1>Book not found!</h1>
+    {% endif %}
+</body>
+</html>
