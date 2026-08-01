@@ -6,41 +6,54 @@
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
 </head>
 <body>
-
-    <div style="text-align: center;">
-        <p><b>Table 1: Table of Fruits and Their Prices</b></p>
-        <table>
-            <tr>
-                <th>Fruit</th>
-                <th>Price</th>
-            </tr>
-            <tr>
-                <td>Apple</td>
-                <td>$0.25</td>
-            </tr>
-            <tr>
-                <td>Orange</td>
-                <td>$0.50</td>
-            </tr>
-            <tr>
-                <td>Banana</td>
-                <td>$1.00</td>
-            </tr>
-            <tr>
-                <td>Pineapple</td>
-                <td>$2.00</td>
-            </tr>
-            <tr>
-                <td><b>Total</b></td>
-                <td><b>$3.75</b></td>
-            </tr>
-        </table>
+    <div class="page-heading">
+        <h1>HTML5 Tables</h1>
+        <p>Sample table layouts with a desert image and camelid comparison.</p>
     </div>
 
-    <br><br>
+    <section class="table-section">
+        <table>
+            <caption>Table 1: Fruits and Their Prices</caption>
+            <thead>
+                <tr>
+                    <th>Fruit</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Apple</td>
+                    <td>$0.25</td>
+                </tr>
+                <tr>
+                    <td>Orange</td>
+                    <td>$0.50</td>
+                </tr>
+                <tr>
+                    <td>Banana</td>
+                    <td>$1.00</td>
+                </tr>
+                <tr>
+                    <td>Pineapple</td>
+                    <td>$2.00</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td><strong>Total</strong></td>
+                    <td><strong>$3.75</strong></td>
+                </tr>
+            </tfoot>
+        </table>
+    </section>
 
-    <p style="text-align: center;">Table 2: A more complex sample table</p>
-    <table>
+    <section class="table-section">
+        <figure class="table-figure">
+            <img src="{% static 'desert.avif' %}" alt="Sunset over a desert landscape" class="desert-img">
+            <figcaption>Desert landscape illustration used for the camelid comparison.</figcaption>
+        </figure>
+
+        <table>
         <tr>
             <td>
                 <img src="{% static 'desert.avif' %}" alt="Desert" width="200">
