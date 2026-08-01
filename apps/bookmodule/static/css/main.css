@@ -1,0 +1,52 @@
+.link-block-green {
+    background-color: #b3ffb3;
+    text-align: center;
+    padding: 10px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.link-block-gray {
+    background-color: #555555;
+    text-align: center;
+    padding: 10px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.link-block-black {
+    background-color: #000000;
+    text-align: center;
+    padding: 10px;
+    display: block;
+}
+
+.link-green {
+    color: red;
+    text-decoration: underline;
+}
+
+.link-yellow {
+    color: yellow;
+    text-decoration: underline;
+}
+
+
+h1 {
+    background-color: #e2ebd8;
+    color: #1c6d32;
+    padding: 10px;
+    margin: 0;
+}
+
+
+table {
+    border-collapse: collapse;
+    margin: 20px auto;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 8px 12px;
+    text-align: center;
+}

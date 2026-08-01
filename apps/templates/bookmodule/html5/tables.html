@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tables</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+<body>
+
+    <div style="text-align: center;">
+        <p><b>Table 1: Table of Fruits and Their Prices</b></p>
+        <table>
+            <tr>
+                <th>Fruit</th>
+                <th>Price</th>
+            </tr>
+            <tr>
+                <td>Apple</td>
+                <td>$0.25</td>
+            </tr>
+            <tr>
+                <td>Orange</td>
+                <td>$0.50</td>
+            </tr>
+            <tr>
+                <td>Banana</td>
+                <td>$1.00</td>
+            </tr>
+            <tr>
+                <td>Pineapple</td>
+                <td>$2.00</td>
+            </tr>
+            <tr>
+                <td><b>Total</b></td>
+                <td><b>$3.75</b></td>
+            </tr>
+        </table>
+    </div>
+
+    <br><br>
+
+    <p style="text-align: center;">Table 2: A more complex sample table</p>
+    <table>
+        <tr>
+            <td>
+                <img src="{% static 'desert.avif' %}" alt="Desert" width="200">
+            </td>
+            <td colspan="4">
+                <h3>Camelid comparison</h3>
+                <p>Approximate as of 6/2011</p>
+            </td>
+        </tr>
+        <tr>
+            <td><b>Dromedary</b></td>
+            <td>1</td>
+            <td>Arabian Peninsula</td>
+            <td>Yes</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td><b>Camels (bactrian)</b></td>
+            <td>2</td>
+            <td>Africa/Asia</td>
+            <td>Yes</td>
+            <td>Yes</td>
+        </tr>
+        <tr>
+            <td><b>Llamas</b></td>
+            <td>1</td>
+            <td>Andes Mountains</td>
+            <td>Yes</td>
+            <td>Yes</td>
+        </tr>
+    </table>
+
+</body>
+</html>
