@@ -44,3 +44,11 @@ class Student(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Profile(models.Model):
+    name = models.CharField(max_length=100)
+    picture = models.ImageField(upload_to='images/')
+
+    def __str__(self):
+        return self.name

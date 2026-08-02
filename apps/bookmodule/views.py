@@ -2,9 +2,9 @@ from apps.bookmodule.models import Book, Address, Student
 from django.shortcuts import render, redirect
 from django.db.models import Q
 from django.db.models import Count, Sum, Avg, Max, Min
-from .models import Department, Course
+from .models import Department, Course, Profile 
 from django.shortcuts import get_object_or_404
-from .forms import BookForm
+from .forms import BookForm, StudentForm, AddressForm, ProfileForm  
 
 
 def index(request):
@@ -209,3 +209,52 @@ def lab10_part2_deletebook(request, id):
     book = get_object_or_404(Book, id=id)
     book.delete()
     return redirect('books:lab10_part2_listbooks')
+
+
+
+def lab11_task1_list(request):
+    students = Student.objects.all()
+    return render(request, 'bookmodule/lab11/task1_list.html', {'students': students})
+
+def lab11_task1_add(request):
+    if request.method == 'POST':
+        form = StudentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('books:lab11_task1_list')
+    else:
+        form = StudentForm()
+    return render(request, 'bookmodule/lab11/task1_add.html', {'form': form})
+
+def lab11_task1_edit(request, id):
+    student = get_object_or_404(Student, id=id)
+    if request.method == 'POST':
+        form = StudentForm(request.POST, instance=student)
+        if form.is_valid():
+            form.save()
+            return redirect('books:lab11_task1_list')
+    else:
+        form = StudentForm(instance=student)
+    return render(request, 'bookmodule/lab11/task1_edit.html', {'form': form, 'student': student})
+
+def lab11_task1_delete(request, id):
+    student = get_object_or_404(Student, id=id)
+    student.delete()
+    return redirect('books:lab11_task1_list')
+
+
+def lab11_task3_upload(request):
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('books:lab11_task1_list') 
+    else:
+        form = ProfileForm()
+    return render(request, 'bookmodule/lab11/profile_upload.html', {'form': form})
+
+
+
+def profile_list(request):
+    profiles = Profile.objects.all()
+    return render(request, 'bookmodule/lab11/profile_list.html', {'profiles': profiles})

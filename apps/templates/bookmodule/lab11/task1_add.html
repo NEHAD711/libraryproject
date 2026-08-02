@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head><title>Student Form</title></head>
+<body>
+    <h1>Student Form</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+    <a href="{% url 'books:lab11_task1_list' %}">Back to List</a>
+</body>
+</html>

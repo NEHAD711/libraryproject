@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profiles List</title>
+</head>
+<body>
+    <h1>Uploaded Profiles (Task 3)</h1>
+    <a href="{% url 'books:lab11_task3_upload' %}">Upload New Profile</a>
+    <hr>
+
+    {% for p in profiles %}
+        <div style="margin-bottom: 20px;">
+            <h3>Name: {{ p.name }}</h3>
+        
+            <img src="{{ p.picture.url }}" alt="{{ p.name }}" width="200" style="border-radius: 5px;">
+        </div>
+    {% empty %}
+        <p>No profiles uploaded yet.</p>
+    {% endfor %}
+</body>
+</html>

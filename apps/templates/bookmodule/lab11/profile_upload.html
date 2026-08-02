@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Profile</title>
+</head>
+<body>
+    <h1>Task 3: Upload Profile Picture</h1>
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Upload</button>
+    </form>
+
+    <br>
+    <a href="{% url 'books:lab11_task1_list' %}">Back</a>
+</body>
+</html>
+

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head><title>Student List</title></head>
+<body>
+    <h1>Student List (Task 1)</h1>
+    <a href="{% url 'books:lab11_task1_add' %}">Add New Student</a>
+    <table border="1">
+        <tr><th>ID</th><th>Name</th><th>Age</th><th>Address</th><th>Actions</th></tr>
+        {% for student in students %}
+        <tr>
+            <td>{{ student.id }}</td>
+            <td>{{ student.name }}</td>
+            <td>{{ student.age }}</td>
+            <td>{{ student.address }}</td>
+            <td>
+                <a href="{% url 'books:lab11_task1_edit' student.id %}">Edit</a> | 
+                <a href="{% url 'books:lab11_task1_delete' student.id %}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
