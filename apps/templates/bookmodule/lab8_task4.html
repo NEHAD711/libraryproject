@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lab 8 - Task 4</title>
+</head>
+<body>
+    <h1>Books - Task 4 (Ordered by Title)</h1>
+    <ul>
+        {% for book in books %}
+            <li>ID: {{ book.id }} | Title: {{ book.title }} | Author: {{ book.author }}</li>
+        {% empty %}
+            <li>No books found.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

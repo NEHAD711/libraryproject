@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lab 8 - Task 3</title>
+</head>
+<body>
+    <h1>Books - Task 3 (Negative Q Operator Query)</h1>
+    <ul>
+        {% for book in books %}
+            <li>ID: {{ book.id }} | Title: {{ book.title }} | Author: {{ book.author }} | Edition: {{ book.edition }}</li>
+        {% empty %}
+            <li>No books found matching the criteria.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

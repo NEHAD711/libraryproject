@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lab 8 - Task 7</title>
+</head>
+<body>
+    <h1>Lab 8 - Students Count in Each City</h1>
+    <ul>
+        {% for addr in cities %}
+            <li>City: {{ addr.city }} | Number of Students: {{ addr.student_count }}</li>
+        {% empty %}
+            <li>No data found.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
