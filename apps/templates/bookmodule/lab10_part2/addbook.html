@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Book - Lab 10 Part 2</title>
+</head>
+<body>
+    <h1>Add New Book (Django Form)</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save Book</button>
+    </form>
+    <br>
+    <a href="{% url 'books:lab10_part2_listbooks' %}">Back to List</a>
+</body>
+</html>

@@ -1,6 +1,8 @@
 from django.urls import path
 from . import views
+
 app_name = 'books'
+
 urlpatterns = [
     path('', views.index, name="books.index"),
     path('list_books/', views.list_books, name="books.list_books"),
@@ -23,5 +25,16 @@ urlpatterns = [
     path('lab9/task2/', views.lab9_task2, name='lab9_task2'),
     path('lab9/task3/', views.lab9_task3, name='lab9_task3'),
     path('lab9/task4/', views.lab9_task4, name='lab9_task4'),
+    
+    # Part 1
+    path('lab9_part1/listbooks', views.lab10_part1_listbooks, name='lab10_part1_listbooks'),
+    path('lab9_part1/addbook', views.lab10_part1_addbook, name='lab10_part1_addbook'),
+    path('lab9_part1/editbook/<int:id>', views.lab10_part1_editbook, name='lab10_part1_editbook'),
+    path('lab9_part1/deletebook/<int:id>', views.lab10_part1_deletebook, name='lab10_part1_deletebook'),
+    
+    # Part 2
+    path('lab9_part2/listbooks', views.lab10_part2_listbooks, name='lab10_part2_listbooks'),
+    path('lab9_part2/addbook', views.lab10_part2_addbook, name='lab10_part2_addbook'),
+    path('lab9_part2/editbook/<int:id>', views.lab10_part2_editbook, name='lab10_part2_editbook'),
+    path('lab9_part2/deletebook/<int:id>', views.lab10_part2_deletebook, name='lab10_part2_deletebook'),
 ]
-
