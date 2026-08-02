@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head><title>Task 4</title></head>
+<body>
+    <h1>Departments with More Than 2 Students (Descending)</h1>
+    <ul>
+        {% for dept in departments %}
+            <li>Department: {{ dept.name }} | Students Count: {{ dept.student_count }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

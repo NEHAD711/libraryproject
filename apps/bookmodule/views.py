@@ -1,9 +1,8 @@
 from apps.bookmodule.models import Book, Address, Student
-from .models import Book
 from django.shortcuts import render
 from django.db.models import Q
-from .models import Book
 from django.db.models import Count, Sum, Avg, Max, Min
+from .models import Department, Course
 
 def index(request):
     return render(request, "bookmodule/index.html")
@@ -41,17 +40,14 @@ def searchBooks(request):
         string = request.POST.get('keyword').lower()
         isTitle = request.POST.get('option1')
         isAuthor = request.POST.get('option2')
-        # now filter
         books = __getBooksList()
         newBooks = []
         for item in books:
             contained = False
             if isTitle and string in item['title'].lower(): contained = True
             if not contained and isAuthor and string in item['author'].lower(): contained = True
-            
             if contained: newBooks.append(item)
         return render(request, 'bookmodule/bookList.html', {'books': newBooks})
-    
     return render(request, 'bookmodule/search.html')
 
 
@@ -106,3 +102,33 @@ def task5_query(request):
 def task7_query(request):
     student_count_by_city = Address.objects.annotate(student_count=Count('student'))
     return render(request, 'bookmodule/lab8_task7.html', {'cities': student_count_by_city})
+
+
+
+def lab9_task1(request):
+    departments = Department.objects.annotate(student_count=Count('student'))
+    return render(request, 'bookmodule/lab9_task1.html', {'departments': departments})
+
+
+def lab9_task2(request):
+    courses = Course.objects.annotate(student_count=Count('student'))
+    return render(request, 'bookmodule/lab9_task2.html', {'courses': courses})
+
+
+
+def lab9_task3(request):
+    departments = Department.objects.all()
+    results = []
+    for dept in departments:
+        oldest_student = Student.objects.filter(department=dept).order_by('id').first()
+        results.append({
+            'department': dept.name,
+            'student': oldest_student
+        })
+    return render(request, 'bookmodule/lab9_task3.html', {'results': results})
+
+
+
+def lab9_task4(request):
+    departments = Department.objects.annotate(student_count=Count('student')).filter(student_count__gt=2).order_by('-student_count')
+    return render(request, 'bookmodule/lab9_task4.html', {'departments': departments})

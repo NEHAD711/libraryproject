@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head><title>Task 3</title></head>
+<body>
+    <h1>Oldest Student in Each Department</h1>
+    <ul>
+        {% for item in results %}
+            <li>Department: {{ item.department }} | Oldest Student: {% if item.student %}{{ item.student.name }} (ID: {{ item.student.id }}){% else %}No Students{% endif %}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
