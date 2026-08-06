@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lab 13 - Task 4</title>
+</head>
+<body>
+    <div id="hoverDiv" style="width: 200px; height: 100px; background-color: lightgreen; padding: 10px;">
+        Hover over me!
+    </div>
+
+    <script>
+        var div = document.getElementById("hoverDiv");
+        div.addEventListener("mouseover", function() {
+            div.style.backgroundColor = "yellow";
+            div.style.fontSize = "20px";
+        });
+        div.addEventListener("mouseout", function() {
+            div.style.backgroundColor = "lightgreen";
+            div.style.fontSize = "16px";
+        });
+    </script>
+</body>
+</html>

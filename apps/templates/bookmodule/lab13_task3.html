@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lab 13 - Task 3</title>
+</head>
+<body>
+    <button id="toggleBtn">Hide/Show</button>
+    <div id="targetDiv" style="width: 150px; height: 150px; background-color: coral; margin-top: 10px;">
+        Toggle Box
+    </div>
+
+    <script>
+        document.getElementById("toggleBtn").addEventListener("click", function() {
+            var x = document.getElementById("targetDiv");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>

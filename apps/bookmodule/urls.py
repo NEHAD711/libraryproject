@@ -46,4 +46,11 @@ urlpatterns = [
     path('lab11/task3/list', views.profile_list, name='profile_list'),
 
     path('logout/', views.logout_view, name='logout'),
+
+
+    path('lab13/task1', views.lab13_task1, name='lab13_task1'),
+    path('lab13/task2', views.lab13_task2, name='lab13_task2'),
+    path('lab13/task3', views.lab13_task3, name='lab13_task3'),
+    path('lab13/task4', views.lab13_task4, name='lab13_task4'),
+    path('lab13/task5', views.lab13_task5, name='lab13_task5'),  
 ]

@@ -301,3 +301,19 @@ def user_login(request):
 def logout_view(request):
     logout(request)
     return redirect('books:index')
+
+
+def lab13_task1(request):
+    return render(request, 'bookmodule/lab13_task1.html')
+
+def lab13_task2(request):
+    return render(request, 'bookmodule/lab13_task2.html')
+
+def lab13_task3(request):
+    return render(request, 'bookmodule/lab13_task3.html')
+
+def lab13_task4(request):
+    return render(request, 'bookmodule/lab13_task4.html')
+
+def lab13_task5(request):
+    return render(request, 'bookmodule/lab13_task5.html')

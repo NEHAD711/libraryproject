@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lab 13 - Task 2</title>
+</head>
+<body>
+    <button id="addBtn">Add Item</button>
+    <ul id="myList">
+        <li>Item 1</li>
+    </ul>
+
+    <script>
+        document.getElementById("addBtn").addEventListener("click", function() {
+            var node = document.createElement("li");
+            var textnode = document.createTextNode("New Item");
+            node.appendChild(textnode);
+            document.getElementById("myList").appendChild(node);
+        });
+    </script>
+</body>
+</html>
