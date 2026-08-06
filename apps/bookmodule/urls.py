@@ -4,10 +4,10 @@ from . import views
 app_name = 'books'
 
 urlpatterns = [
-    path('', views.index, name="books.index"),
-    path('list_books/', views.list_books, name="books.list_books"),
-    path('<int:bookId>/', views.viewbook, name="books.view_one_book"),
-    path('aboutus/', views.aboutus, name="books.aboutus"),
+    path('', views.index, name='index'),
+    path('list_books/', views.list_books, name='list_books'),
+    path('<int:bookId>/', views.viewbook, name='view_one_book'),
+    path('aboutus/', views.aboutus, name='aboutus'),
     path('html5/links', views.html5_links, name='html5_links'),
     path('html5/text/formatting', views.text_formatting, name='text_formatting'),
     path('html5/listing', views.html5_listing, name='html5_listing'),
@@ -44,4 +44,6 @@ urlpatterns = [
     path('lab11/task1/delete/<int:id>', views.lab11_task1_delete, name='lab11_task1_delete'),
     path('lab11/task3/upload', views.lab11_task3_upload, name='lab11_task3_upload'),
     path('lab11/task3/list', views.profile_list, name='profile_list'),
+
+    path('logout/', views.logout_view, name='logout'),
 ]

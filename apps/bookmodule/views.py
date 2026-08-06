@@ -4,12 +4,20 @@ from django.db.models import Q
 from django.db.models import Count, Sum, Avg, Max, Min
 from .models import Department, Course, Profile 
 from django.shortcuts import get_object_or_404
-from .forms import BookForm, StudentForm, AddressForm, ProfileForm  
+from .forms import BookForm, StudentForm, AddressForm, ProfileForm 
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import login
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+from django.contrib.auth import logout
 
 
+@login_required(login_url='/users/login/')
 def index(request):
     return render(request, "bookmodule/index.html")
 
+@login_required(login_url='/users/login/')
 def list_books(request):
     return render(request, 'bookmodule/list_books.html')
 
@@ -64,7 +72,7 @@ def complex_query(request):
     if len(mybooks) >= 1:
         return render(request, 'bookmodule/bookList.html', {'books': mybooks})
     else:
-        return render(request, 'bookmodule/index.html')
+        return render(request, 'bookmodule/bookList.html', {'books': mybooks})
 
 
 def task1_query(request):
@@ -258,3 +266,38 @@ def lab11_task3_upload(request):
 def profile_list(request):
     profiles = Profile.objects.all()
     return render(request, 'bookmodule/lab11/profile_list.html', {'profiles': profiles})
+
+def register(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'you have successfully registered') 
+            return redirect('login')
+        else:
+            messages.error(request, 'error message.') 
+    else:
+        form = UserCreationForm()
+    return render(request, 'users/register.html', {'form': form})
+
+
+
+def user_login(request):
+    if request.method == 'POST':
+        form = AuthenticationForm(request, data=request.POST)
+        if form.is_valid():
+            user = form.get_user()
+            login(request, user)
+            messages.success(request, 'login successfully')  
+            return redirect('/books/')  
+        else:
+            messages.error(request, 'error message.') 
+    else:
+        form = AuthenticationForm()
+    return render(request, 'users/login.html', {'form': form})
+
+
+
+def logout_view(request):
+    logout(request)
+    return redirect('books:index')
